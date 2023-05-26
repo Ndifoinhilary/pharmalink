@@ -1,0 +1,119 @@
+.search-page{
+    width: 100%;
+    height: 100vh;
+    /* //background: url(../img/hero-bg.png) top center no-repeat; */
+    background-size: cover;
+
+}
+.search-div{
+    background-image: url(../img/drugs/pharmcy.jpg);
+    background-size: cover;
+    padding-top: 120px;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+.drug-search-box-submit{
+    padding: 12px;
+    font-size: large;
+    border-radius: 0px 10px 10px 0px;
+    border-color: none;
+    /* background-color: rgb(25,39,70); */
+    background-color: rgb(47,156,237);
+    color: white;
+    border-style: none;
+    width: 20%;
+}
+
+.drug-search-box-submit:hover{
+    background-color: rgb(23, 101, 161);
+}
+
+.drug-search-box{
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px 0px 0px 10px;
+    font-size: 20px;
+    border-style: none;
+    border: 1px solid white;
+}
+
+.pharm-img{
+    height: 200px;
+}
+
+#view-all{
+    margin-top: 16px;
+    float: right;
+    color: snow;
+    font-weight: 400;
+    padding: 5px;
+    background-color:chocolate;
+    border-radius: 2px;
+}
+#view-all:hover{
+  background-color: rgb(48, 125, 240);
+}
+
+h4{
+    color: rgb(180, 83, 13);
+}
+
+.profile-details{
+    padding-top: 45px;
+}
+
+.login{
+    width: 70%;
+    margin: auto;
+    font-weight: 600;
+    padding: 0px 80px 40px 80px;
+    border-radius: 10px;
+    color: darkslategray;
+    margin-top: 40px;
+}
+
+.login .btn{
+    
+    background-color: rgb(92, 163, 255);
+    color: white;
+    border-radius: 2px;
+    width: 150px;
+}
+form a:hover{
+    text-decoration: underline;
+}
+.register-submit{
+    width: 250px;
+}
+
+/* Media queries for smaller screen */
+@media (max-width: 991px) {
+    .drug-search-box{
+        width: 100%;
+        font-size: 18px;
+    }
+    .drug-search-box-submit{
+        margin-top: 15px;
+        padding: 9;
+        font-size: 18px;
+        width: 30%;
+    }
+    .drug-search-box, .drug-search-box-submit{
+        border-radius: 10px;
+    }
+    .profile-details{
+        padding-top: 12px;
+    }
+    .login{
+        width: 100%;
+        padding: 0px 10px 40px 10px;
+    }
+    .register-submit{
+        width: 100%;
+    }
+}
+
+footer a:hover{
+    text-decoration: underline;
+}

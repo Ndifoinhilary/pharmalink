@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Find Medication</title>
+  <meta content name="description">
+  <meta content name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/nsnstyle.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body style="background-color:rgba(213, 222, 240, 0.575)">
+
+  <!-- ======= Header ======= -->
+  {% include "base/base.html" %}
+  <!-- End Header -->
+  <br><br>
+
+  <!-- ======= Hero Section ======= -->
+  <section class="container search-page h-auto">
+    <div class="container-fluid search-div" style="border-radius: 2px;">
+      <div class="container">
+        <form action="" method="get">
+          <input type="text" id="search-input" name="q" placeholder="Type the name of the drug here" class="drug-search-box">
+          <button type="submit" class="drug-search-box-submit">Search</button>
+        </form>
+      </div>
+    </div>
+    <br>
+    <h4>Results</h4>
+    <hr class="mt-0">
+
+    <!-- Search results -->
+    <div class="row row-cols-2 row-cols-md-4 g-2">
+      {% for drug in drugs %}
+      <div class="col">
+        <div class="card h-50">
+          <img src="{{ drug.image_of_drug.url }}" class="card-img-top pharm-img" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ drug.name_of_drug }}</h5>
+          </div>
+          <div class="card-footer">
+            <p class="text-success">Available: {{ drug.is_available }}</p>
+            {% for pharm in drug.pharmacy.all|slice:":1" %}
+            <p class="card-text"><small><i class="bi bi-geo"></i> {{ pharm.name_of_pharmacy }}</small></p>
+            {% endfor %}
+            <a href="{% url 'base-drug-details' drug.id %}">
+              <button class="btn btn-outline-primary btn-sm w-100" type="button">View</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  <!-- End Hero -->
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

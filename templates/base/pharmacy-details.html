@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>Profile</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+        <!-- Vendor CSS Files -->
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+        <!-- Template Main CSS File -->
+        <link href="{% static 'css/nsnstyle.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <!-- =======================================================
+  * Template Name: FlexStart
+  * Updated: Mar 10 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+    </head>
+    <body style="background-color:rgba(213, 222, 240, 0.575)">
+        <!-- ======= Header ======= -->
+        {% include "base/base.html" %}
+        <!-- End Header -->
+        <br>
+        <br>
+        <!-- ======= Hero Section ======= -->
+        <section class="container profile h-auto">
+            <h2 style="color: rgb(148, 69, 13); text-align: center;">
+                <strong>Profile</strong>
+            </h2>
+           <a href="{% url 'base-all-pharmacy' %}"> <button class="btn btn-primary">Back</button></a>
+            <hr class="mt-0">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-4" style="padding-top: 15px;">
+                        <img
+                            class="img img-fluid mx-auto d-block"
+                            style="border-radius: 50%;"
+                            src="{{pharmacy.image_of_pharmacy.url}}"
+                            alt="logo"
+                        >
+                    </div>
+                    <div class="col-8 profile-details">
+                        <h3>{{ pharmacy.name_of_pharmacy}}</h3>
+                        <p>
+                            <i class="bi bi-geo"></i>{{ pharmacy.description_about_location}}
+                        </p>
+                        <p>
+                            <i class="bi bi-telephone"></i> {{pharmacy.pharmacy_phone_number}}
+                        </p>
+                        <p>
+                            <i class="bi bi-envelope"></i> {{ pharmacy.pharmacy_email}}
+                        </p>
+                        <p class="text-success">
+                        </i> Opening Time : {{ pharmacy.open_time}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <h4 style="color: rgb(119, 51, 2); font-weight:bold;">Stock Details</h4>
+    <hr class="mt-0">
+    {% if user.is_authenticated and user.staff and user.staff.pharmacy == pharmacy %}
+       <a href="{% url 'base-add_drug'%}">
+        <button class="btn btn-primary">Add Drugs</button>
+       </a>
+    {% endif %}
+    <!-- Details Section -->
+    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">Preview</th>
+                <th scope="col">Drug</th>
+                <th scope="col">Price</th>
+                <th scope="col">Available</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for drug in all_drugs  %}
+            <tr>
+                <td>
+                    <img
+                        src="{{drug.image_of_drug.url}}"
+                        class="img-fluid mx-auto d-block"
+                        style="width: 50px; height: 50px"
+                        alt=""
+                    >
+                </td>
+                <td>{{drug.name_of_drug}}</td>
+                <td>{{drug.price}} CFA</td>
+                <td>{{drug.is_available}}</td>
+                <td>
+                    {% if user.is_authenticated and user.staff and user.staff.pharmacy == pharmacy %}
+                    <a href="{% url 'base-edit-drug' drug.id %}">
+                        <button class="btn btn-primary">Edit</button>
+                    </a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+<!-- Vendor JS Files -->
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- Template Main JS File -->
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</hcy

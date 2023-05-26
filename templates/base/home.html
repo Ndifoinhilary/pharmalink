@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Welcome</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static  'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static  'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static  'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <!-- <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"> -->
+  <!-- <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet"> -->
+  <!-- <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"> -->
+
+  <!-- Template Main CSS File -->
+
+  <link href="{% static  'css/nsnstyle.css' %}" rel="stylesheet">
+
+  <link href="{% static  'css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: FlexStart
+  * Updated: Mar 10 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  {% include "base/base.html" %}
+ <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="{% static  'img/drugs/african-american-pharmacist-working-drugstore-hospital-pharmacy-african-healthcare.jpg' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-6 d-flex flex-column justify-content-center intro">
+          <h1 data-aos="fade-up">Connecting you to the care you need</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">Your presciption to convenience - find your nearest pharmacy and medication with ease and get back to feeling your best.</h2>
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="text text-lg-start">
+              <!-- <a href="{% url 'base-user-register' %}" class="btn-search-drug d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Search Drug</span>
+                <i class="bi bi-arrow-right"></i>
+              </a> -->
+              <a href="{% url 'base-register' %}" class="btn-manage-my-pharmacy d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Register Pharmacy</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <!-- Footer -->
+
+  <footer class="footer">
+    <div class="container-fluid" style="color: white;">
+      <a href="{% url 'base-event' %}" style="color: white;">Updates</a>  
+         <a href="{% url 'base-contact' %}" style="color: white;">Contact</a>
+         <!-- <a class="nav-link scrollto" href="#FAQS">FAQS</a> -->
+    </div>
+  </footer>
+
+  
+
+  <!-- Vendor JS Files -->
+  <!-- <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script> -->
+  <script src="{% static  'vendor/aos/aos.js' %}"></script>
+  <script src="{% static  'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static  'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <!-- <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script> -->
+  <script src="{% static  'vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
+
+  <!-- Template Main JS File -->
+  <script src="{% static  'js/main.js' %}"></script>
+
+</body>
+
+</html>

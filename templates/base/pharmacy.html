@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Find Pharmacy</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+
+
+
+  <!-- Template Main CSS File -->
+
+  <link href="{% static 'css/nsnstyle.css' %}" rel="stylesheet">
+
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: FlexStart
+  * Updated: Mar 10 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body style="background-color:rgba(213, 222, 240, 0.575)">
+
+  <!-- ======= Header ======= -->
+  {% include "base/base.html" %}
+ <!-- End Header -->
+  <br><br>
+  
+  <!-- ======= Hero Section ======= -->
+  
+    <section class="container search-page h-auto">
+        <p class="text-center text-primary fw-bold"><a href="{% url 'base-all-pharmacy' %}" id="view-all">Explore all Pharmacies <i class="bi bi-box-arrow-up-right"></i></a></p>
+        <div class="container-fluid search-div" border-radius: 2px;>
+            
+            <!-- <div class="conatainer">
+                    <form action="">
+                        <input type="text" name="" id="" placeholder="Name of Pharmacy" class="drug-search-box">
+                        <button type="submit" class="drug-search-box-submit">Search</button>
+                    </form>
+        </div> -->
+        </div>
+        <br>
+        <h4 style="color: chocolate;">Suggested based on location</h4>
+        <hr class="mt-0">
+
+         <!-- Search results -->
+        
+        <div class="row row-cols-2 row-cols-md-4 g-2">
+          {% for pharmacy  in pharm %}
+          <div class="col">
+            <div class="card h-90">
+              <img src="{{pharmacy.image_of_pharmacy.url }}" class="card-img-top pharm-img" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{pharmacy.name_of_pharmacy}}</h5>
+                <p class="card-text"><small> {{pharmacy.description_about_location}} </small></p>
+              </div>
+              <div class="card-footer">
+                <a href="{% url 'base-pharmacy-details' pharmacy.id %}"><a href="{% url 'base-pharmacy-details' pharmacy.id %}"><button class="btn btn-outline-primary btn-sm w-100" type="button">View</button></a></a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          
+        </div>
+
+        <!-- Link to all pharmacies -->
+        <br>
+        
+       
+    </section>
+   
+ <!-- End Hero -->
+
+  
+
+  <!-- Vendor JS Files -->
+
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
