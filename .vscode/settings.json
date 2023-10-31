@@ -2,5 +2,12 @@
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8"
     },
-    "python.formatting.provider": "none"
+    "python.formatting.provider": "none",
+    "python.autoComplete.extraPaths": [
+        "/home/hilary/.vscode/extensions/stefanwehr.write-your-python-program-1.0.5/python/src/"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/hilary/.vscode/extensions/stefanwehr.write-your-python-program-1.0.5/python/src/"
+    ],
+    "python.linting.enabled": false
 }
